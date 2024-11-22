@@ -1,9 +1,67 @@
 <script setup>
-    import UserLayout from '@/layouts/UserLayout.vue'
+import UserLayout from '@/layouts/UserLayout.vue'
+import Close from '@/components/icons/Close.vue'
 </script>
 
 <template>
     <UserLayout>
-        Cart Page
+        <h1 class="text-3xl font-bold m-4">shopping class</h1>
+
+        <!-- Cart -->
+        <div class="flex">
+            <div class="flex-auto w-64 bg-base-200 p-4">
+                <div v-for="item in [1, 2, 3, 4, 5]" class="flex">
+                    <div class="flex-1">
+                        <img class="w-full p-10"
+                            src="https://fastly.picsum.photos/id/919/200/200.jpg?hmac=jtDR0R0QNk8D4_SfAICLM_dNLuspq3B3nTWyOSYcQis">
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-col justify-between h-full">
+                            <div>
+                                <div class="relative grid grid-cols-2">
+                                    <div>
+                                        <div><b>Flower</b></div>
+                                        <div>Just Flower</div>
+                                        <div>100 BATH</div>
+                                    </div>
+                                    <div>
+                                        <select class="w-1/2 p-4">
+                                            <option v-for="quantity in [1, 2, 3, 4, 5]">
+                                                {{ quantity }}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="absolute top-0 right-0">
+                                        <Close></Close>
+                                    </div>
+                                </div>
+                            </div>
+                            <div><b>In stock</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary -->
+            <div class="flex-auto w-32 bg-slate-200 p-4">
+                <div class="text-xl font-bold">Order Summary</div>
+                <div class="my-4 divide-y divide-black">
+                    <div class="flex justify-between py-4">
+                        <div>ราคาสินค้าทั้งหมด</div>
+                        <div>100</div>
+                    </div>
+                    <div class="flex justify-between py-4">
+                        <div>ค่าส่ง</div>
+                        <div>0</div>
+                    </div>
+                    <div class="flex justify-between py-4">
+                        <div>ราคารวมทั้งหมด</div>
+                        <div>0</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </UserLayout>
 </template>
