@@ -54,7 +54,7 @@ const cardStore = useCartStore()
                 <div class="my-4 divide-y divide-black">
                     <div class="flex justify-between py-4">
                         <div>ราคาสินค้าทั้งหมด</div>
-                        <div>100</div>
+                        <div>{{ cardStore.summaryPrice }}</div>
                     </div>
                     <div class="flex justify-between py-4">
                         <div>ค่าส่ง</div>
@@ -62,7 +62,7 @@ const cardStore = useCartStore()
                     </div>
                     <div class="flex justify-between py-4">
                         <div>ราคารวมทั้งหมด</div>
-                        <div>0</div>
+                        <div>{{ cardStore.summaryPrice }}</div>
                     </div>
                 </div>
 

@@ -12,6 +12,13 @@ export const useCartStore = defineStore('cart', {
             quantity: 1
         }]
     }),
+    getters: {
+        summaryPrice(state) {
+            return state.items.reduce((acc, item) => {
+                return acc + (item.price * item.quantity)
+            }, 0)
+        }
+    },
     actions: {
         addToCart(productData) {
             this.items.push(productData)
