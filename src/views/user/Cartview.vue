@@ -1,6 +1,9 @@
 <script setup>
 import UserLayout from '@/layouts/UserLayout.vue'
 import Close from '@/components/icons/Close.vue'
+import { useCartStore } from '@/stores/user/cart'
+
+const cardStore = useCartStore()
 </script>
 
 <template>
@@ -10,7 +13,10 @@ import Close from '@/components/icons/Close.vue'
         <!-- Cart -->
         <div class="flex">
             <div class="flex-auto w-64 bg-base-200 p-4">
-                <div v-for="item in [1, 2, 3, 4, 5]" class="flex">
+                <div v-if="cardStore.items.length === 0">
+                    Card is Empty
+                </div>
+                <div v-else v-for="(item, index) in cardStore.items" class="flex">
                     <div class="flex-1">
                         <img class="w-full p-10"
                             src="https://fastly.picsum.photos/id/919/200/200.jpg?hmac=jtDR0R0QNk8D4_SfAICLM_dNLuspq3B3nTWyOSYcQis">
@@ -20,18 +26,18 @@ import Close from '@/components/icons/Close.vue'
                             <div>
                                 <div class="relative grid grid-cols-2">
                                     <div>
-                                        <div><b>Flower</b></div>
-                                        <div>Just Flower</div>
-                                        <div>100 BATH</div>
+                                        <div><b>{{ item.name }}</b></div>
+                                        <div>{{ item.about }}</div>
+                                        <div>{{ item.price }}</div>
                                     </div>
                                     <div>
-                                        <select class="w-1/2 p-4">
+                                        <select v-model="item.quantity" class="w-1/2 p-4">
                                             <option v-for="quantity in [1, 2, 3, 4, 5]">
                                                 {{ quantity }}
                                             </option>
                                         </select>
                                     </div>
-                                    <div class="absolute top-0 right-0">
+                                    <div @click="cardStore.removeItemInCart(index)" class="absolute top-0 right-0">
                                         <Close></Close>
                                     </div>
                                 </div>
