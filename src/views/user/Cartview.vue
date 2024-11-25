@@ -4,6 +4,12 @@ import Close from '@/components/icons/Close.vue'
 import { useCartStore } from '@/stores/user/cart'
 
 const cardStore = useCartStore()
+
+const changeQuantity = (event, index) => {
+    const newQuantity = parseInt(event.target.value)
+    cardStore.updateQuantity(index, newQuantity)
+}
+
 </script>
 
 <template>
@@ -19,7 +25,7 @@ const cardStore = useCartStore()
                 <div v-else v-for="(item, index) in cardStore.items" class="flex">
                     <div class="flex-1">
                         <img class="w-full p-10"
-                            src="https://fastly.picsum.photos/id/919/200/200.jpg?hmac=jtDR0R0QNk8D4_SfAICLM_dNLuspq3B3nTWyOSYcQis">
+                            :src="item.imageUrl">
                     </div>
                     <div class="flex-1">
                         <div class="flex flex-col justify-between h-full">
@@ -31,7 +37,7 @@ const cardStore = useCartStore()
                                         <div>{{ item.price }}</div>
                                     </div>
                                     <div>
-                                        <select v-model="item.quantity" class="w-1/2 p-4">
+                                        <select v-model="item.quantity" class="w-1/2 p-4" @change="changeQuantity($event, index)">
                                             <option v-for="quantity in [1, 2, 3, 4, 5]">
                                                 {{ quantity }}
                                             </option>
