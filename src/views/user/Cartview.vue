@@ -3,11 +3,11 @@ import UserLayout from '@/layouts/UserLayout.vue'
 import Close from '@/components/icons/Close.vue'
 import { useCartStore } from '@/stores/user/cart'
 
-const cardStore = useCartStore()
+const cartStore = useCartStore()
 
 const changeQuantity = (event, index) => {
     const newQuantity = parseInt(event.target.value)
-    cardStore.updateQuantity(index, newQuantity)
+    cartStore.updateQuantity(index, newQuantity)
 }
 
 </script>
@@ -19,10 +19,10 @@ const changeQuantity = (event, index) => {
         <!-- Cart -->
         <div class="flex">
             <div class="flex-auto w-64 bg-base-200 p-4">
-                <div v-if="cardStore.items.length === 0">
-                    Card is Empty
+                <div v-if="cartStore.items.length === 0">
+                    Cart is Empty
                 </div>
-                <div v-else v-for="(item, index) in cardStore.items" class="flex">
+                <div v-else v-for="(item, index) in cartStore.items" class="flex">
                     <div class="flex-1">
                         <img class="w-full p-10"
                             :src="item.imageUrl">
@@ -43,7 +43,7 @@ const changeQuantity = (event, index) => {
                                             </option>
                                         </select>
                                     </div>
-                                    <div @click="cardStore.removeItemInCart(index)" class="absolute top-0 right-0">
+                                    <div @click="cartStore.removeItemInCart(index)" class="absolute top-0 right-0">
                                         <Close></Close>
                                     </div>
                                 </div>
@@ -60,7 +60,7 @@ const changeQuantity = (event, index) => {
                 <div class="my-4 divide-y divide-black">
                     <div class="flex justify-between py-4">
                         <div>ราคาสินค้าทั้งหมด</div>
-                        <div>{{ cardStore.summaryPrice }}</div>
+                        <div>{{ cartStore.summaryPrice }}</div>
                     </div>
                     <div class="flex justify-between py-4">
                         <div>ค่าส่ง</div>
@@ -68,7 +68,7 @@ const changeQuantity = (event, index) => {
                     </div>
                     <div class="flex justify-between py-4">
                         <div>ราคารวมทั้งหมด</div>
-                        <div>{{ cardStore.summaryPrice }}</div>
+                        <div>{{ cartStore.summaryPrice }}</div>
                     </div>
                 </div>
 

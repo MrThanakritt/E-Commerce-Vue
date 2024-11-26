@@ -13,9 +13,8 @@ const CartStore = useCartStore()
 
 const addToCart = (product) => {
     CartStore.addToCart(product)
-    router.push({ name: 'cart' })
+    router.push({ name: 'card' }) //card = cart!!  
 }
-
 </script>
 
 <template>
