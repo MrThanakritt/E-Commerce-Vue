@@ -1,4 +1,3 @@
-import Product from '@/components/Product.vue'
 import { defineStore } from 'pinia'
 
 export const useProductStore = defineStore('product', {
