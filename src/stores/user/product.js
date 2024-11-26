@@ -12,10 +12,10 @@ export const useProductStore = defineStore('product', {
       price: 100,
     },
     {
-      name: 'test',
+      name: 'test 123',
       imageUrl: 'https://fastly.picsum.photos/id/849/200/200.jpg?hmac=LwsdGn2endKvoLY10FPqtfqKYCVMbPEp5J6S_tUN1Yg',
       quantity: 10,
-      about: 'testt222',
+      about: 'recheck',
       status: 'open',
       price: 100,
     }]

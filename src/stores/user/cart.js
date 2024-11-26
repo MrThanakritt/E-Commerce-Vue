@@ -20,7 +20,6 @@ export const useCartStore = defineStore('cart', {
             }
         },
         addToCart(productData) {
-
             const findProductIndex = this.items.findIndex(item => {
                 return item.name === productData.name
             })
@@ -28,13 +27,11 @@ export const useCartStore = defineStore('cart', {
             if (findProductIndex < 0) {
                 productData.quantity = 1
                 this.items.push(productData)
-            } else {
+            }else{
                 const currentItem = this.items[findProductIndex]
                 this.updateQuantity(findProductIndex, currentItem.quantity + 1)
             }
 
-            productData.quantity = 1
-            this.items.push(productData)
             localStorage.setItem('cart-data', JSON.stringify(this.items))
         },
         updateQuantity(index, quantity) {
