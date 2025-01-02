@@ -16,7 +16,8 @@ const changeQuantity = (event, index) => {
 
 <template>
     <UserLayout>
-        <h1 class="text-3xl font-bold m-4">shopping class</h1>
+        <h1 class="text-3xl font-bold m-4">CART
+        </h1>
 
         <!-- Cart -->
         <div class="flex">
@@ -26,8 +27,7 @@ const changeQuantity = (event, index) => {
                 </div>
                 <div v-else v-for="(item, index) in cartStore.items" class="flex">
                     <div class="flex-1">
-                        <img class="w-full p-10"
-                            :src="item.imageUrl">
+                        <img class="w-full p-10" :src="item.imageUrl">
                     </div>
                     <div class="flex-1">
                         <div class="flex flex-col justify-between h-full">
@@ -39,7 +39,8 @@ const changeQuantity = (event, index) => {
                                         <div>{{ item.price }}</div>
                                     </div>
                                     <div>
-                                        <select v-model="item.quantity" class="w-1/2 p-4" @change="changeQuantity($event, index)">
+                                        <select v-model="item.quantity" class="w-1/2 p-4"
+                                            @change="changeQuantity($event, index)">
                                             <option v-for="quantity in [1, 2, 3, 4, 5]">
                                                 {{ quantity }}
                                             </option>
@@ -72,7 +73,7 @@ const changeQuantity = (event, index) => {
                         <div>ราคารวมทั้งหมด</div>
                         <div>{{ cartStore.summaryPrice }}</div>
                     </div>
-                    <RouterLink :to="{ name: 'checkout'}" class="btn btn-neutral w-full">
+                    <RouterLink :to="{ name: 'checkout' }" class="btn btn-neutral w-full">
                         ชำระเงิน
                     </RouterLink>
                 </div>

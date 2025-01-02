@@ -44,7 +44,7 @@ const handleSearch = (event) => {
     <div class="container mx-auto">
         <div class="navbar bg-base-100">
             <div class="flex-1">
-                <RouterLink :to="{ name: 'home' }" class="btn btn-ghost text-xl">DRAGON SHOP</RouterLink>
+                <RouterLink :to="{ name: 'home' }" class="btn btn-ghost text-xl">DREAM RECORD</RouterLink>
             </div>
             <div class="flex-none gap-2">
                 <div class="form-control">
@@ -79,7 +79,7 @@ const handleSearch = (event) => {
                 <div v-else class="dropdown dropdown-end">
                     <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
                         <div class="w-10 rounded-full">
-                            <img alt="Tailwind CSS Navbar component" src="../assets/GOKU.jpg" />
+                            <img alt="Tailwind CSS Navbar component" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/12in-Vinyl-LP-Record-Angle.jpg/220px-12in-Vinyl-LP-Record-Angle.jpg" />
                         </div>
                     </div>
                     <ul tabindex="0"

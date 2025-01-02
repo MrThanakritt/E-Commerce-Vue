@@ -30,7 +30,7 @@ const addToCart = (product) => {
 
 <template>
     <UserLayout>
-        <div class="text-2xl m-4">Search: <b>{{ searchText }}</b></div>
+        <div class="text-2xl m-4">Search: <b>{{ serachText }}</b></div>
         <Product :products="filterProducts"
         :addToCart="addToCart"
         ></Product>
