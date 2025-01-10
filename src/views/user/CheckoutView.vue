@@ -10,7 +10,7 @@ import { useCartStore } from '@/stores/user/cart'
 const FormData = [
     {
         name: 'Email address',
-        field: 'email'
+        field: 'emaill'
     },
     {
         name: 'Name',
@@ -38,7 +38,7 @@ const userFormData = reactive(
 )
 
 const payment = () => {
-    cartStore.checkout(userFormData)
+    cartStore.placeorder(userFormData)
     router.push({ name: 'success'})
 }
 

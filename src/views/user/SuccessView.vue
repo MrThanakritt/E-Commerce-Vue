@@ -18,7 +18,7 @@ onMounted(() => {
 
 <template>
     <UserLayout>
-        <div class="max-w-2xl mx-auto border border-base-200 shadow-xl p-8">
+        <div class="max-w-6xl mx-auto border border-base-200 shadow-xl p-8 my-8">
             <div>
                 <div class="text-2xl font-bold">Your order is successful!</div>
                 <div>Hi {{ orderData.name }}</div>
@@ -44,18 +44,30 @@ onMounted(() => {
                 </div>
             </div>
             <div class="divider"></div>
-                <div v-for="product in orderData.products" class="grid grid-cols-4 gap-2">
-                    <div>
-                        <img class="w-full" :src="product.imageUrl">
-                    </div>
-                    <div>
-                        {{ product.name }}
-                    </div>
-                    <div>จำนวนสินค้า</div>
-                    <div>ราคาสินค้าทั้งหมด</div>
+            <div v-for="product in orderData.products" class="grid grid-cols-4 gap-2 mb-6 p-4 font-medium items-center">
+                <div>
+                    <img class="w-44" :src="product.imageUrl">
                 </div>
+                <div>
+                    {{ product.name }}
+                </div>
+                <div>จำนวน: {{ product.quantity }}</div>
+                <div>ราคาสินค้า: {{ product.price * product.quantity }}</div>
+            </div>
             <div class="divider"></div>
+            <div class="justify-between flex">
+                <div>ราคาสินค้าทั้งหมด</div>
+                <div>{{ orderData.totalPrice }}</div>
+            </div>
+            <div class="justify-between flex">
+                <div>ค่าจัดส่ง</div>
+                <div>0</div>
+            </div>
             <div class="divider"></div>
+            <div class="justify-between flex">
+                <div>ราคาสินค้าและค่าจัดส่งทั้งสิ้น</div>
+                <div>{{ orderData.totalPrice }}</div>
+            </div>
             <div class="divider"></div>
             <div>ขอบคุณสำหรับการสั่งซื้อ</div>
         </div>

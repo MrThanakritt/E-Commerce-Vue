@@ -22,23 +22,23 @@ const changeQuantity = (event, index) => {
         <!-- Cart -->
         <div class="flex">
             <div class="flex-auto w-64 bg-base-200 p-4">
-                <div v-if="cartStore.items.length === 0">
-                    Cart is Empty
+                <div v-if="cartStore.items.length === 0" class="text-center p-40 font-bold text-lg">
+                    คุณยังไม่มีสินค้าในตะกร้า รีบเลือกสินค้าที่คุณชอบเลย
                 </div>
                 <div v-else v-for="(item, index) in cartStore.items" class="flex">
                     <div class="flex-1">
                         <img class="w-full p-10" :src="item.imageUrl">
                     </div>
-                    <div class="flex-1">
+                    <div class="flex-1 p-4">
                         <div class="flex flex-col justify-between h-full">
                             <div>
                                 <div class="relative grid grid-cols-2">
-                                    <div>
+                                    <div class="text-lg font-semibold p-4 ">
                                         <div><b>{{ item.name }}</b></div>
                                         <div>{{ item.about }}</div>
                                         <div>{{ item.price }}</div>
                                     </div>
-                                    <div>
+                                    <div class="p-4 font-bold">
                                         <select v-model="item.quantity" class="w-1/2 p-4"
                                             @change="changeQuantity($event, index)">
                                             <option v-for="quantity in [1, 2, 3, 4, 5]">
@@ -51,7 +51,7 @@ const changeQuantity = (event, index) => {
                                     </div>
                                 </div>
                             </div>
-                            <div><b>In stock</b></div>
+                            <div class="h-16 p-4"><b>IN STOCK</b></div>
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@ const changeQuantity = (event, index) => {
 
             <!-- Summary -->
             <div class="flex-auto w-32 bg-slate-200 p-4">
-                <div class="text-xl font-bold">Order Summary</div>
+                <div class="text-xl font-bold">ORDER SUMMARY</div>
                 <div class="my-4 divide-y divide-black">
                     <div class="flex justify-between py-4">
                         <div>ราคาสินค้าทั้งหมด</div>
@@ -71,7 +71,7 @@ const changeQuantity = (event, index) => {
                     </div>
                     <div class="flex justify-between py-4">
                         <div>ราคารวมทั้งหมด</div>
-                        <div>{{ cartStore.summaryPrice }}</div>
+                        <div><b>{{ cartStore.summaryPrice }}</b></div>
                     </div>
                     <RouterLink :to="{ name: 'checkout' }" class="btn btn-neutral w-full">
                         ชำระเงิน

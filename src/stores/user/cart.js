@@ -1,3 +1,4 @@
+import Product from '@/components/Product.vue'
 import { data } from 'autoprefixer'
 import { defineStore } from 'pinia'
 
@@ -44,13 +45,14 @@ export const useCartStore = defineStore('cart', {
             this.items.splice(index, 1)
             localStorage.setItem('cart-data', JSON.stringify(this.items))
         },
-        checkout(userData) {
+        placeorder(userData) {
             const orderData = {
                 ...userData,
                 totalPrice: this.summaryPrice,
                 paymentMethod: 'Credit Card',
                 createdDate: (new Date()).toLocaleString(),
-                orderNumber: `AA${(Math.floor(Math.random() * 900000) + 100000).toString()}`
+                orderNumber: `AA${(Math.floor(Math.random() * 900000) + 100000).toString()}`,
+                products: this.items
             }
             localStorage.setItem('order-data', JSON.stringify(orderData))
         },
