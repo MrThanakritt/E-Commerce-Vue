@@ -9,19 +9,19 @@ import { useCartStore } from '@/stores/user/cart'
 
 const FormData = [
     {
-        name: 'Email address',
-        field: 'emaill'
+        name: 'EMAIL ADDRESS',
+        field: 'email'
     },
     {
-        name: 'Name',
+        name: 'ชื่อ-นามสกุล',
         field: 'name'
     },
     {
-        name: 'Address',
+        name: 'ที่อยู่',
         field: 'address'
     },
     {
-        name: 'Note',
+        name: 'ข้อมูลติดต่อเพิ่มเติม',
         field: 'note'
     }
 ]
@@ -55,7 +55,7 @@ const payment = () => {
                     <label class="label">
                         <span class="label-text">{{ form.name }}</span>
                 </label>
-                <input v-model="userFormData[form.field]" type="text" placeholder="Type here"
+                <input v-model="userFormData[form.field]" type="text" placeholder=""
                     class="input input-bordered w-full" />
         </div>
         <button @click="payment" class="btn btn-neutral w-full mt-5">ชำระเงิน</button>
